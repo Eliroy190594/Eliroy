@@ -1,0 +1,83 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+			
+		Sovereign S=new Sovereign("Mike");
+		DarkLord DL=new DarkLord("Hsu");
+		Minister M1=new Minister("Eric");
+		Minister M2=new Minister("Alice");
+		S.Ability();
+		DL.Ability();
+		M1.Ability();
+		M2.Ability();
+		
+		
+	}
+}
+
+enum characters{Sovereign,DarkLord,Minister};
+
+abstract class Characters
+{
+    protected string name;
+	
+    protected string id;
+	
+	
+    abstract public void Ability();
+
+}
+
+class Sovereign:Characters
+
+{
+	
+    public Sovereign(string name):base(){
+		base.name=name;
+		base.id="Sovereign";
+    }
+
+	
+    public override void Ability(){
+		
+        Console.WriteLine(name+" knows every one.");
+    }
+
+}
+
+class DarkLord:Characters {
+    public DarkLord(string name):base(){
+        base.name=name;
+        base.id="DarkLord";
+    }
+
+    public override void Ability(){
+		Console.WriteLine("No one know {0}.",name);
+    }
+}
+
+class Minister:Characters {
+    public Minister(string name):base(){
+        base.name=name;
+        base.id="Minister";
+    }
+
+    public override void Ability(){
+        Console.WriteLine(name+" don't know everything");
+    }
+}
+
+class Game
+{
+	private int player;
+	
+	public Game(int num)
+	{
+		player=num;
+	}
+	
+	public int[] inning=new int[5]{1,2,3,4,5};
+}
